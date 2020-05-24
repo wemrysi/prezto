@@ -67,15 +67,23 @@ fi
 # Nix
 #
 
-if [ -e /home/emrys/.nix-profile/etc/profile.d/nix.sh ]; then
-  . /home/emrys/.nix-profile/etc/profile.d/nix.sh;
+if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then
+  . ${HOME}/.nix-profile/etc/profile.d/nix.sh;
 fi
 
 #
 # Keychain
 #
 
-if [ -e /home/emrys/.nix-profile/bin/keychain ]; then
-  /home/emrys/.nix-profile/bin/keychain --nogui --agents gpg,ssh ${HOME}/.ssh/emrys_rsa 6E1998C4
+if [ -e ${HOME}/.nix-profile/bin/keychain ]; then
+  ${HOME}/.nix-profile/bin/keychain --nogui --agents gpg,ssh ${HOME}/.ssh/emrys_rsa 6E1998C4
   source ${HOME}/.keychain/${NAME}-sh
+fi
+
+#
+# autojump
+#
+
+if [ -e ${HOME}/.nix-profile/share/autojump/autojump.zsh ]; then
+  . ${HOME}/.nix-profile/share/autojump/autojump.zsh
 fi
