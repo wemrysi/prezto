@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 #
@@ -44,7 +44,8 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
-  $path
+  /usr/{bin,sbin}
+  /{bin,sbin}
 )
 
 #
@@ -60,4 +61,21 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
+fi
+
+#
+# Nix
+#
+
+if [ -e /home/emrys/.nix-profile/etc/profile.d/nix.sh ]; then
+  . /home/emrys/.nix-profile/etc/profile.d/nix.sh;
+fi
+
+#
+# Keychain
+#
+
+if [ -e /home/emrys/.nix-profile/bin/keychain ]; then
+  /home/emrys/.nix-profile/bin/keychain --nogui --agents gpg,ssh ${HOME}/.ssh/emrys_rsa 6E1998C4
+  source ${HOME}/.keychain/${NAME}-sh
 fi
