@@ -12,4 +12,5 @@ fi
 
 if [ -e "${HOME}/.sensitive/github-token" ]; then
   export GITHUB_TOKEN="$(cat ${HOME}/.sensitive/github-token)"
+  export GITHUB_ACTOR="wemrysi"
 fi
