@@ -80,6 +80,7 @@ if [ -e ${HOME}/.nix-profile/bin/keychain ]; then
   ${HOME}/.nix-profile/bin/keychain --nogui --agents gpg,ssh ${HOME}/.ssh/emrys_rsa 6E1998C4
   source ${HOME}/.keychain/${NAME}-sh
   source ${HOME}/.keychain/${NAME}-sh-gpg
+  export GPG_TTY=$(tty)
 fi
 
 #
