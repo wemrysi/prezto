@@ -46,9 +46,7 @@ path=(
   ${HOME}/bin
   ${HOME}/work/precog/bin
   ${HOME}/.cache/npm/bin
-  /usr/local/{bin,sbin}
-  /usr/{bin,sbin}
-  /{bin,sbin}
+  $path
 )
 
 #
